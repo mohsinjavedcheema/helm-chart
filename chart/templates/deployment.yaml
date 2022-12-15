@@ -27,7 +27,7 @@ spec:
               - secretRef:
                   name: jwt-token
             - name: http
-              containerPort: 8080
+              containerPort: 3000
               protocol: TCP
           livenessProbe:
             httpGet:
