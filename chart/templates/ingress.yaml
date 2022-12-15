@@ -1,13 +1,13 @@
 {{- if .Values.ingress.enabled -}}
-{{- $fullName := include "tmf635-usage.fullname" . -}}
+{{- $fullName := include "helm-demo.fullname" . -}}
 {{- $ingressPath := .Values.ingress.path -}}
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: {{ $fullName }}
   labels:
-    app: {{ template "tmf635-usage.name" . }}
-    chart: {{ template "tmf635-usage.chart" . }}
+    app: {{ template "helm-demo.name" . }}
+    chart: {{ template "helm-demo.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 {{- with .Values.ingress.annotations }}

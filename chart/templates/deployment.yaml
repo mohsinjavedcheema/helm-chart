@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "tmf635-usage.fullname" . }}
+  name: {{ template "helm-demo.fullname" . }}
   labels:
-    app: {{ template "tmf635-usage.name" . }}
-    chart: {{ template "tmf635-usage.chart" . }}
+    app: {{ template "helm-demo.name" . }}
+    chart: {{ template "helm-demo.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ template "tmf635-usage.name" . }}
+      app: {{ template "helm-demo.name" . }}
       release: {{ .Release.Name }}
   template:
     metadata:
       labels:
-        app: {{ template "tmf635-usage.name" . }}
+        app: {{ template "helm-demo.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
