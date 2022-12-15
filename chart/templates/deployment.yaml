@@ -23,7 +23,9 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          ports:
+            envFrom:
+              - secretRef:
+                  name: jwt-token
             - name: http
               containerPort: 8080
               protocol: TCP
